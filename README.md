@@ -27,3 +27,7 @@ rails g model User username:string password_digest:string role:references
 rails g model Order number:string total:integer user:references status:references
 rails g model OrderDetail order:references product:references quantity:integer
 ```
+
+```bash
+rails g controller Admin::Categories index show new edit
+```
