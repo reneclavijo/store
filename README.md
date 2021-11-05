@@ -16,6 +16,7 @@
  - Enviar un correo de confirmación al cliente sobre el pedido realizado
 
 ## Creando los modelos y las migraciones según el diagrama ER
+
 ```bash
 rails g model Category name:string
 rails g model Product name:string price:integer description:string category:references
@@ -31,3 +32,21 @@ rails g model OrderDetail order:references product:references quantity:integer
 ```bash
 rails g controller Admin::Categories index show new edit
 ```
+
+## Instalar bootstrap con yarn
+
+1. Agregar los paquetes con Yarn
+
+    ```bash
+    yarn add bootstrap
+    yarn add @popperjs/core
+    ```
+
+2. Crear el directorio `app/javascript/css`
+3. Crear el archivo `main.sass` o `main.scss`
+4. Importar los paquetes
+
+    ```javascript
+    import 'bootstrap'
+    import 'css/main'
+    ```
