@@ -29,9 +29,7 @@ rails g model Order number:string total:integer user:references status:reference
 rails g model OrderDetail order:references product:references quantity:integer
 ```
 
-```bash
-rails g controller Admin::Categories index show new edit
-```
+
 
 ## Instalar bootstrap con yarn
 
@@ -44,9 +42,24 @@ rails g controller Admin::Categories index show new edit
 
 2. Crear el directorio `app/javascript/css`
 3. Crear el archivo `main.sass` o `main.scss`
+
+    ```sass
+    @import '~bootstrap/scss/bootstrap'
+    ```
 4. Importar los paquetes
 
     ```javascript
+    // app/javascript/packs/application.js
     import 'bootstrap'
     import 'css/main'
     ```
+
+## CRUD de Categories
+
+```bash
+rails g controller Admin::Categories index show new edit
+```
+
+1. Definir las rutas del controlador
+2. Verficiar el controlador
+3. Vistas del controlador

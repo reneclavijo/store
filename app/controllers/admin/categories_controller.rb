@@ -5,7 +5,6 @@ class Admin::CategoriesController < ApplicationController
   
   def index
     @categories = Category.all
-    render "index"
   end
 
   def new
@@ -20,7 +19,7 @@ class Admin::CategoriesController < ApplicationController
 
   def create
     @category = Category.new(params_category)
-    if @category
+    if @category.save
       redirect_to admin_categories_path
     else
       render :new

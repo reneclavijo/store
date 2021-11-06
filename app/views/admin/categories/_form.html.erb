@@ -1,0 +1,16 @@
+<!-- VARIABLES: base_cateogry -->
+<%= form_with(model: [:admin, base_category]) do |form| %>
+    
+    <div class="mb-3">
+        <%= form.label :name %>
+        <%= form.text_field :name %>
+        <% if base_category.errors[:name].any? %>
+          <div>
+            <%= base_category.errors[:name].first %>
+          </div>
+        <% end %>
+    </div>
+
+    <%= form.submit %>
+
+<% end %>
