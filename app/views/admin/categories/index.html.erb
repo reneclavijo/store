@@ -1,6 +1,30 @@
-<h1>Admin::Categories#index</h1>
-<p>Find me in app/views/admin/categories/index.html.erb</p>
+<h3>Categories</h3>
 
-<% if flash[:set_category_error] %>
-  <%= flash[:set_category_error] %>
-<% end %>
+<div class="card">
+  <div class="card-body">
+    <h5  class="card-title"> Index </h5>
+    <%= link_to "New", admin_new_category_path, class: 'btn btn-primary' %>
+
+    <% if flash[:set_category_error] %>
+      <%= flash[:set_category_error] %>
+    <% end %>
+
+    <table class="table table-hover">
+      <tr>
+        <th> Name </th>
+        <th> Action </th>
+      </tr>
+      <% @categories.each do |c| %>
+        <tr>
+          <td> <%= c.name %> </td>
+          <td>
+              <%= link_to "Edit", admin_edit_category_path(c) %>
+              <%= link_to "Delete", admin_category_path(c), method: :delete %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+
+  </div>
+</div>
