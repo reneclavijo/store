@@ -12,6 +12,18 @@ Rails.application.routes.draw do
     put     'categories/:id',     to: 'categories#update'
     patch   'categories/:id',     to: 'categories#update'
     delete  'categories/:id',     to: 'categories#destroy'
+
+    # Roles
+    get 'roles',          to: 'roles#index',    as: 'roles'
+    get 'roles/new',      to: 'roles#new',      as: 'new_role'
+    get 'roles/:id',      to: 'roles#show',     as: 'role'
+    get 'roles/:id/edit', to: 'roles#edit',     as: 'edit_role'
+
+    post    'roles',          to: 'roles#create'
+    put     'roles/:id',      to: 'roles#update'
+    patch   'roles/:id',      to: 'roles#update'
+    delete  'roles/:id',      to: 'roles#destroy'
+
   end
 
 end

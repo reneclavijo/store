@@ -63,3 +63,23 @@ rails g controller Admin::Categories index show new edit
 1. Definir las rutas del controlador
 2. Verficiar el controlador
 3. Vistas del controlador
+
+## CRUD de Roles
+
+```bash
+rails g controller Admin::Roles index show new edit
+```
+
+1. Definir las rutas del controlador
+2. Verificar lógica en el controlador
+3. Vistar
+
+# CRUD de Statutes
+
+```bash
+rails g controller Admin::Statuses index show new edit
+```
+
+1. Definir las rutas del controlador
+2. Verificar lógica en el controlador
+3. Vistar
