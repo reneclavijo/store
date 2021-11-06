@@ -46,6 +46,10 @@ class Admin::CategoriesController < ApplicationController
 
   def set_category
     @category = Category.find(params[:id])
+  rescue
+    # el flash es como el mensajero de rails
+    flash[:set_category_error] = "Could not find the record #{params[:id]}"
+    redirect_to admin_categories_path
   end
 
 end
