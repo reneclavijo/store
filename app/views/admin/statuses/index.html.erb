@@ -1,0 +1,27 @@
+<h3>Statuses</h3>
+
+<div class="card">
+    <div class="card-body">
+        <h5> Index </h5>
+        <%= link_to "New", admin_new_status_path, class: 'btn btn-primary' %>
+
+        <% if flash[:set_status_error] %> 
+            <%= flash[:set_status_error] %> 
+        <% end %> 
+
+        <table class="table table-hover">
+            <tr>
+                <th> Description </th>
+                <th> Action </th>
+            </tr>
+            <% @statuses.each do |s| %> 
+                <tr>
+                    <td> <%= s.description %> </td>
+                    <td>
+                        
+                    </td>
+                </tr>
+            <% end %> 
+        </table>
+    </div>
+</div>

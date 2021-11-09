@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'pages/home'
   namespace :admin do
     # Categories
   #VERB     URI                       RESPONSABLE           ALIAS
@@ -23,6 +24,18 @@ Rails.application.routes.draw do
     put     'roles/:id',      to: 'roles#update'
     patch   'roles/:id',      to: 'roles#update'
     delete  'roles/:id',      to: 'roles#destroy'
+
+    # Statuses
+
+    get 'statuses',             to: 'statuses#index',   as: 'statuses'
+    get 'statuses/new',         to: 'statuses#new',     as: 'new_status'
+    get 'statuses/:id',         to: 'statuses#show',    as: 'status'
+    get 'statuses/:id/edit',    to: 'statuses#edit',    as: 'edit_status'
+
+    post    'statuses',            to: 'statuses#create'
+    put     'statuses/:id',        to: 'statuses#update'
+    patch    'statuses/:id',        to: 'statuses#update'
+    delete  'statuses/:id',        to: 'statuses#destroy'
 
   end
 

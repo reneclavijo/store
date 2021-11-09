@@ -1,0 +1,18 @@
+<!-- VARIABLES: base_role -->
+<div class="card">
+    <div class="card-body">
+        <%= form_with(model: [:admin, base_role]) do |form| %>
+            <div class="mb-3">
+                <%= form.label :name, class: 'form-label' %>
+                <%= form.text_field :name, class: 'form-control' %>
+                <% if base_role.errors[:name].any? %>
+                    <div>
+                        <%= base_role.errors[:name].first %>
+                    </div>
+                <% end %>
+            </div>
+
+            <%= form.submit class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+</div>
