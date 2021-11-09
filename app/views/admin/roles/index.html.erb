@@ -1,2 +1,28 @@
-<h1>Admin::Roles#index</h1>
-<p>Find me in app/views/admin/roles/index.html.erb</p>
+<h3>Roles</h3>
+
+<div class="card">
+    <div class="card-body">
+        <h5> Index </h5>
+        <%= link_to "New", admin_new_role_path, class: 'btn btn-primary' %>
+
+        <% if flash[:set_role_error] %>
+          <%= flash[:set_role_error] %>
+        <% end %>
+
+        <table class="table table-hover">
+            <tr>
+                <th> Name   </th>
+                <th> Action </th>
+            </tr>
+            <% @roles.each do |r| %>
+                <tr>
+                    <td> <%= r.name %></td>
+                    <td>
+                        <%= link_to "Edit", admin_edit_role_path(r), class: 'btn btn-warning' %>
+                        <%= link_to "Delete", admin_role_path(r), class: 'btn btn-danger', method: :delete, data: { confirm: 'Are you sure?' } %>
+                    </td>
+                </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
