@@ -1,0 +1,49 @@
+<!-- VARIABLES: base_product ; categories -->
+
+<div class="card">
+    <div class="card-body">
+        <%= form_with(model: [:admin, base_product]) do |form| %>
+            <div class="mb-3">
+                <%= form.label      :name, class: 'form-label' %>
+                <%= form.text_field :name, class: 'form-control' %>
+                <% if base_product.errors[:name].any? %>
+                    <div>
+                        <%= base_product.errors[:name].first %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="mb-3">
+                <%= form.label      :price, class: 'form-label' %>
+                <%= form.text_field :price, class: 'form-control' %>
+                <% if base_product.errors[:price].any? %>
+                    <div>
+                        <%= base_product.errors[:price].first %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="mb-3">
+                <%= form.label      :description, class: 'form-label' %>
+                <%= form.text_field :description, class: 'form-control' %>
+                <% if base_product.errors[:description].any? %>
+                    <div>
+                        <%= base_product.errors[:description].first %>
+                    </div>
+                <% end %>
+            </div>
+            <div class="mb-3">
+                <%= form.label  :category_id, class: 'form-label' %>
+                <%= form.select :category_id, 
+                options_from_collection_for_select(@categories, :id, :name, base_product.category_id),
+                { include_blank: "Select a category" }, 
+                {class: 'form-control'} %>
+                <% if base_product.errors[:category_id].any? %>
+                    <div>
+                        <%= base_product.errors[:category_id].first %>
+                    </div>
+                <% end %>
+            </div>
+
+            <%= form.submit class: 'btn btn-primary' %>
+        <% end %>
+    </div>
+</div>

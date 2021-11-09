@@ -15,7 +15,7 @@ Status.create([
 ])
 puts "💾 Statutes loaded!"
 # Save data for Category
-Category.create([
+@categories = Category.create([
     { name: 'Food' },
     { name: 'Meat' },
     { name: 'Beer' },
@@ -33,3 +33,8 @@ User.create([
     { username: 'admin', password: 'admin', password_confirmation: 'admin', role: Role.find_by(name: 'Admin') }
 ])
 puts "💾 Users loaded!"
+
+25.times do
+    Product.create(name: Faker::Food.dish, description: Faker::Food.description, price: rand(10000..50000), category: @categories.sample)
+end
+puts "💾 Products loaded!"
