@@ -1,0 +1,19 @@
+<!-- VARIABLES: base_product -->
+<div class="card w-100">
+    <div class="card-body">
+        <h5>
+            <%= base_product.name %>
+        </h5>
+        <h6 class="text-muted">
+            <%= base_product.category.name %>
+        </h6>
+        <p>
+            <%= base_product.description %>
+        </p>
+
+        <%= link_to "#", class: 'btn btn-secondary', data: { confirm: 'Add to the cart?' } do %>
+            <i class="bi bi-cart-plus"></i>
+            <%= base_product.price %> CLP
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,20 @@
+<nav class="navbar fixed-top navbar-light bg-primary">
+    <div class="container">
+        <div class="row w-100">
+            <div class="col-lg-2">
+                <a class="navbar-brand fs-3" href="/">Crazy Food</a>
+            </div>
+            <div class="col-lg-8">
+                <%= form_with(method: :get) do |form| %>
+                    <%= form.text_field :search, class: 'form-control', placeholder: 'search' %>
+                <% end %>
+            </div>
+            <div class="col-lg-2 text-center fs-3">
+                <%= link_to "#", class: 'text-decoration-none text-dark' do %>
+                    <i class="bi bi-cart3"></i>
+                    <%= @cart.cart_products.count %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+  </nav>
