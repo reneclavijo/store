@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-light bg-primary">
     <div class="container">
-        <div class="row w-100">
+        <div class="row align-items-center w-100">
             <div class="col-lg-2">
                 <a class="navbar-brand fs-3" href="/">Crazy Food</a>
             </div>
@@ -9,8 +9,8 @@
                     <%= form.text_field :search, class: 'form-control', placeholder: 'search' %>
                 <% end %>
             </div>
-            <div class="col-lg-2 text-center fs-3">
-                <%= link_to "#", class: 'text-decoration-none text-dark' do %>
+            <div class="col-lg-2 text-center">
+                <%= link_to cart_path, class: 'text-decoration-none text-dark btn-cart fs-5' do %>
                     <i class="bi bi-cart3"></i>
                     <%= @cart.cart_products.count %>
                 <% end %>

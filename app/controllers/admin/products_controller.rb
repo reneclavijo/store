@@ -3,7 +3,8 @@ class Admin::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   
   def index
-    @products = Product.all
+    #@products = Product.all # problema n+1
+    @products = Product.includes(:category)
   end
   
   def new
