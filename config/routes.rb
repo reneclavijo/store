@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root 'pages#home'
   get '/cart', to: 'pages#cart', as: 'cart'
   
+  # Carts
+  get 'carts/show'
+  post '/carts/:id_product', to: 'carts#add_product', as: 'add_product_to_cart'
+  
   namespace :admin do
     # Categories
   #VERB     URI                       RESPONSABLE           ALIAS

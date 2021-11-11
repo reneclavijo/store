@@ -11,7 +11,7 @@
             <%= base_product.description %>
         </p>
 
-        <%= link_to "#", class: 'btn btn-secondary', data: { confirm: 'Add to the cart?' } do %>
+        <%= link_to add_product_to_cart_path(base_product), method: :post, class: 'btn btn-secondary', data: { confirm: 'Add to the cart?' } do %>
             <i class="bi bi-cart-plus"></i>
             <%= base_product.price %> CLP
         <% end %>
