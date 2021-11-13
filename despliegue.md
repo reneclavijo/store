@@ -26,5 +26,22 @@
 
 6. Ejecutar el archivo *2_instalador_nginx_passenger.sh*
 
-7. Ejecutar el archivo 
+    ```bash
+    # PARA VERSIONES CON UBUNTU 20.04
+    [https://gorails.com/deploy/ubuntu/20.04#nginx](Guia GoRails) hacer otro instalador
+    ```
+
+    ```bash
+    ./despliegue/2_instalador_nginx_passenger.sh
+    ```
+    
+    Configurar los archivos de nginx
+
+7. Ejecutar el archivo 3 para configurar y crear el Postgresql en AWS
+
+    ```bash
+    ./despliegue/3_instalador_postgresql
+    ```
+
+8. Instalar y configurar Capistrano siguiendo el archivo de *4_instalacion_capistrano.md*
 
