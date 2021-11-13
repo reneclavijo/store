@@ -40,7 +40,7 @@
 7. Ejecutar el archivo 3 para configurar y crear el Postgresql en AWS
 
     ```bash
-    ./despliegue/3_instalador_postgresql
+    ./despliegue/3_instalador_postgresql.sh
     ```
 
 8. Instalar y configurar Capistrano siguiendo el archivo de *4_instalacion_capistrano.md*
