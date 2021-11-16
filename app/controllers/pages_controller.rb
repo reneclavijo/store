@@ -7,7 +7,4 @@ class PagesController < ApplicationController
     @products = Product.includes(:category).shuffle
   end
 
-  def cart
-  end  
-
 end
