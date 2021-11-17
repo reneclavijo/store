@@ -1,5 +1,8 @@
 <!-- VARIABLES: base_product -->
 <div class="card w-100">
+    <% if base_product.main_photo.attached? %>
+      <%= image_tag base_product.main_photo, class: 'card-img-top' %>
+    <% end %>
     <div class="card-body">
         <h5>
             <%= base_product.name %>

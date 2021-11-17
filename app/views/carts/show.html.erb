@@ -8,9 +8,18 @@
         <% @cart.cart_products.each do |cp| %>
             <div class="card mb-3">
                 <div class="card-body">
-                    <h4> <%= cp.product.name %> </h4>
-                    <h6 class="text-muted"> <%= cp.product.category.name %> </h6>
-                    <p> <%= cp.product.description %> </p>
+                    <div class="row">
+                        <div class="col-3">
+                            <% if cp.product.main_photo.attached? %>
+                              <%= image_tag cp.product.main_photo, class: 'w-100' %>
+                            <% end %>
+                        </div>
+                        <div class="col-9">
+                            <h4> <%= cp.product.name %> </h4>
+                            <h6 class="text-muted"> <%= cp.product.category.name %> </h6>
+                            <p> <%= cp.product.description %> </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         <% end %>
