@@ -16,7 +16,7 @@
 
         <%= link_to add_product_to_cart_path(base_product), method: :post, class: 'btn btn-secondary', data: { confirm: 'Add to the cart?' } do %>
             <i class="bi bi-cart-plus"></i>
-            <%= base_product.price %> CLP
+            <%= number_to_currency(base_product.price, unit: 'CLP ', precision: 0, delimiter: '.') %>
         <% end %>
     </div>
 </div>
