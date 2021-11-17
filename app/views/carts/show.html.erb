@@ -1,9 +1,36 @@
 <div class="row">
     <div class="col">
-        <!-- Lista de productos -->
+        <div class="card mb-3">
+            <div class="card-body">
+                <h4><b>Shopping Cart (<%= @cart.products.count %>)</b></h4>
+            </div>
+        </div>
+        <% @cart.cart_products.each do |cp| %>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h4> <%= cp.product.name %> </h4>
+                    <h6 class="text-muted"> <%= cp.product.category.name %> </h6>
+                    <p> <%= cp.product.description %> </p>
+                </div>
+            </div>
+        <% end %>
     </div>
     <div class="col">
         <!-- Información del precio total del carrito -->
-        <%= @cart.total %>
+        <div class="card">
+            <div class="card-body">
+                <h4>
+                    <b>Cart Summary</b>
+                </h4>
+                <div class="row">
+                    <div class="col">
+                        <b>Total: </b>
+                    </div>
+                    <div class="col">
+                        <h5><%= @cart.total %> CLP</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
