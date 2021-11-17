@@ -40,7 +40,10 @@ group :development, :test do
 end
 ```
 
-`rails g rspec:install`
+```bash
+bundle
+rails g rspec:install
+```
 
 ## Estructura de Rspec Core
 
