@@ -6,9 +6,9 @@ No olvidar qué las pruebas tenemos que tener claro las ENTRADAS y SALIDAS. Lo q
 
 Existen 3 pasos comunes para construir pruebas y es la AAA
 
-- Arrange   |   Arreglar    ;   Preparar
-- Act       |   Actuar      ;   Ejecutar
-- Assert    |   Afirmar     ;   Validar
+- Arrange   |   Arreglar    |   Preparar
+- Act       |   Actuar      |   Ejecutar
+- Assert    |   Afirmar     |   Validar
 
 - Arrange.  Preparar los datos de entrada que necesito
 - Act.      Ejecutar la acción que estoy probando
@@ -44,53 +44,53 @@ end
 
 ## Estructura de Rspec Core
 
-    ```ruby
-    Rspec.describe MiClase do # Comportamiento de clase
+```ruby
+Rspec.describe MiClase do # Comportamiento de clase
 
+end
+
+Rspec.describe MiClase do
+    describe '#metodo' do
     end
 
-    Rspec.describe MiClase do
-        describe '#metodo' do
-        end
-
-        describe '#metodo2' do
-        end
+    describe '#metodo2' do
     end
-    ```
+end
+```
 
 Bloque `context` hace lo mismo que el describe anidado, solo que ayuda a tener un lenguaje más "humano"
 
-    ```ruby
-    Rspec.describe MiClase do
-        context 'cuando tenemos una condición' do
-        
-        end
+```ruby
+Rspec.describe MiClase do
+    context 'cuando tenemos una condición' do
+    
     end
-    ```
+end
+```
 
 Bloque `it` es el bloque de prueba concreta que recibe una descripción de la prueba y dentro va la AAA
 
-    ```ruby
-    Rspec.describe MiClase do
-        describe '#metodo1' do
-            it 'descripción de la prueba' do
+```ruby
+Rspec.describe MiClase do
+    describe '#metodo1' do
+        it 'descripción de la prueba' do
 
-            end
         end
     end
-    ```
+end
+```
 
-    Métodos *helper* que se ejecutan cuando son llamados
+Métodos *helper* que se ejecutan cuando son llamados
 
-    ```ruby
-    Rspec.describe MiClase do
-        let(:metodo_ayudante) do
-            # codigo
-        end
-
-        let(:metodo_ayudante_una_linea) { #codigo }
+```ruby
+Rspec.describe MiClase do
+    let(:metodo_ayudante) do
+        # codigo
     end
-    ```
+
+    let(:metodo_ayudante_una_linea) { #codigo }
+end
+```
 
 ## Estructua Rspec-Expectations
 
@@ -150,27 +150,27 @@ Se puede probar lo siguiente:
     - instance variables assigned in the controller to be shared with the view
     - cookies sent back with the response
 
-    ```ruby
-    require 'rails_helper'
+```ruby
+require 'rails_helper'
 
-    RSpec.describe "/products", type: :request do
-        describe "GET /index" do
-            it 'should return index template' do
+RSpec.describe "/products", type: :request do
+    describe "GET /index" do
+        it 'should return index template' do
             get products_path
             #puts response.methods.sort
             expect(response).to have_http_status(200)
             expect(response).to be_successful
-            end
-        end
-
-        describe "POST /products" do
-            it 'should redirect to products_path' do
-            post products_path, params: { product: { name: 'jueguete' } }
-            expect(response).to be_redirect
-            end
         end
     end
-    ```
+
+    describe "POST /products" do
+        it 'should redirect to products_path' do
+            post products_path, params: { product: { name: 'jueguete' } }
+            expect(response).to be_redirect
+        end
+    end
+end
+```
 
 ### Vistas
 
@@ -186,42 +186,42 @@ Tomar en cuenta para las vistas que se deben seguir la siguiente estructura
 
 Tomar como ejemplo lo siguiente:
 
-    ```ruby
-    require "rails_helper"
+```ruby
+require "rails_helper"
 
-    RSpec.describe ProductsController, type: :routing do
-        describe "routing" do
-            it "routes to #index" do
-                expect(get: "/products").to route_to("products#index")
-            end
+RSpec.describe ProductsController, type: :routing do
+    describe "routing" do
+        it "routes to #index" do
+            expect(get: "/products").to route_to("products#index")
+        end
 
-            it "routes to #new" do
-                expect(get: "/products/new").to route_to("products#new")
-            end
+        it "routes to #new" do
+            expect(get: "/products/new").to route_to("products#new")
+        end
 
-            it "routes to #show" do
-                expect(get: "/products/1").to route_to("products#show", id: "1")
-            end
+        it "routes to #show" do
+            expect(get: "/products/1").to route_to("products#show", id: "1")
+        end
 
-            it "routes to #edit" do
-                expect(get: "/products/1/edit").to route_to("products#edit", id: "1")
-            end
+        it "routes to #edit" do
+            expect(get: "/products/1/edit").to route_to("products#edit", id: "1")
+        end
 
-            it "routes to #create" do
-                expect(post: "/products").to route_to("products#create")
-            end
+        it "routes to #create" do
+            expect(post: "/products").to route_to("products#create")
+        end
 
-            it "routes to #update via PUT" do
-                expect(put: "/products/1").to route_to("products#update", id: "1")
-            end
+        it "routes to #update via PUT" do
+            expect(put: "/products/1").to route_to("products#update", id: "1")
+        end
 
-            it "routes to #update via PATCH" do
-                expect(patch: "/products/1").to route_to("products#update", id: "1")
-            end
+        it "routes to #update via PATCH" do
+            expect(patch: "/products/1").to route_to("products#update", id: "1")
+        end
 
-            it "routes to #destroy" do
-                expect(delete: "/products/1").to route_to("products#destroy", id: "1")
-            end
+        it "routes to #destroy" do
+            expect(delete: "/products/1").to route_to("products#destroy", id: "1")
         end
     end
-    ```
+end
+```
