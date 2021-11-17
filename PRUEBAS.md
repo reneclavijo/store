@@ -34,13 +34,13 @@ Existen 3 pasos comunes para construir pruebas y es la AAA
 
 ## ¿ Cómo se utilizar Rspec?
 
-    ```ruby
-    group :development, :test do
-        gem 'rspec-rails', '~> 5.0.0'
-    end
-    ```
+```ruby
+group :development, :test do
+    gem 'rspec-rails', '~> 5.0.0'
+end
+```
 
-    `rails g rspec:install`
+`rails g rspec:install`
 
 ## Estructura de Rspec Core
 
